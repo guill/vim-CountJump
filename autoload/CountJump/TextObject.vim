@@ -86,7 +86,7 @@ function! CountJump#TextObject#TextObjectWithJumpFunctions( mode, isInner, isExc
     set virtualedit=onemore " Need to move beyond the current line for proper selection of an end position at the end of the line when 'selection' is "exclusive"; otherwise, the "l" motion would select the newline, too.
     set whichwrap+=h,l
     try
-	let l:beginPosition = call(a:JumpToBegin, [1, a:isInner])
+	let l:beginPosition = call(a:JumpToBegin, [l:count, a:isInner])
 "****D echomsg '**** begin' string(l:beginPosition) 'cursor:' string(getpos('.'))
 	if l:beginPosition != [0, 0]
 	    if a:isExcludeBoundaries
